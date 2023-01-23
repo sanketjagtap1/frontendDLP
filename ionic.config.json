@@ -1,0 +1,7 @@
+{
+  "name": "dlp-frontend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
