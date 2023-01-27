@@ -1,0 +1,16 @@
+<ion-content [fullscreen]="true" class="no-scroll">
+    <div class="main ">
+        <form class="w-100" #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
+            <h1 class="fw-bold text-center">LOGIN</h1>
+            <ion-item class="my-3">
+                <ion-input ngModel name="email" placeholder="User Name"></ion-input>
+            </ion-item>
+            <ion-item class="my-3">
+                <ion-input ngModel name="password" placeholder="Password" type="password"></ion-input>
+            </ion-item>
+            <ion-button type="submit" expand="block">Log in</ion-button>
+            <span class="mt-2">Don't have account? <a class="text-decoration-none" routerLink="/register">Sign
+                    Up</a></span>
+        </form>
+    </div>
+</ion-content>

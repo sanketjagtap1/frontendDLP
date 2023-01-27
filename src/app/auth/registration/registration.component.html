@@ -1,0 +1,32 @@
+<ion-content [fullscreen]="true" class="no-scroll">
+  <div class="main">
+      <form [formGroup]="regiForm" (ngSubmit)="registerUser()" class="w-100">
+          <h1 class="fw-bold text-center">REGISTER</h1>
+          <ion-item class="my-3">
+              <ion-input type="text" formControlName="name" placeholder="Name"></ion-input>
+          </ion-item>
+          <ion-item class="my-3">
+              <ion-input type="email" formControlName="email" placeholder="Email"></ion-input>
+          </ion-item>
+          <ion-item class="my-3">
+              <ion-input type="number" formControlName="mobile" placeholder="Mobile"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-select formControlName="gender" placeholder="Select Gender">
+              <ion-select-option value="Male">Male</ion-select-option>
+              <ion-select-option value="Female">Female</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item class="my-3">
+              <ion-input placeholder="Password" formControlName="password" type="password"></ion-input>
+          </ion-item>
+          <ion-item class="my-3">
+              <ion-input placeholder="Confirm Password" ngModel="" [ngModelOptions]=" 
+              {standalone: true}" name="confirmpass" type="password"></ion-input>
+          </ion-item>
+          <ion-button type="submit" expand="block">Sign Up</ion-button>
+          <span class="mt-2">Already have an account? <a class="text-decoration-none" routerLink="">Sign
+                  In</a></span>
+      </form>
+  </div>
+</ion-content>
