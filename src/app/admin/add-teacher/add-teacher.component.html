@@ -1,0 +1,32 @@
+<ion-content [fullscreen]="true" class="no-scroll">
+  <div class="main ">
+      <form class="w-100" #addTeacherForm="ngForm" (ngSubmit)="addTeacher(addTeacherForm.value)">
+          <h1 class="fw-bold text-center">ADD TEACHER</h1>
+          <ion-item class="my-3">
+              <ion-input ngModel name="name" placeholder="Name"></ion-input>
+          </ion-item>
+
+          <ion-item class="my-3">
+              <ion-input ngModel name="mobile" placeholder="Mobile"></ion-input>
+          </ion-item>
+
+          <ion-item class="my-3">
+              <ion-input ngModel name="email" placeholder="Email"></ion-input>
+          </ion-item>
+
+          <ion-item class="my-3">
+              <ion-input type="password" ngModel name="password" placeholder="Password"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-select name="gender" ngModel placeholder="Select Gender">
+              <ion-select-option value="Male">Male</ion-select-option>
+              <ion-select-option value="Female">Female</ion-select-option>
+            </ion-select>
+          </ion-item>
+          
+          <ion-button type="submit" expand="block">Submit</ion-button>
+          
+      </form>
+  </div>
+  
+</ion-content>

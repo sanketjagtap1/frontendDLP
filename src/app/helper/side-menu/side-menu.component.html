@@ -6,49 +6,12 @@
   </ion-header>
   <ion-content class="ion-padding">
     <!-- admin -->
-      <ion-list lines="none" *ngIf="userType == 'Admin'">
-          <ion-item>
-            <ion-label><a class="nav-link" (click)="getHeader('Dashboard')" routerLink="">Dashboard</a></ion-label>
+      <ion-list lines="none" >
+          <ion-item *ngFor="let routes of routeObj">
+            <ion-label><a class="nav-link" (click)="getHeader('Dashboard')" routerLink="{{routes.link}}">{{routes.name}}</a></ion-label>
           </ion-item>
-          <ion-item>
-            <ion-label><a class="nav-link" (click)="getHeader('Add Teacher')" routerLink="">Add Teacher</a></ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-label><a class="nav-link" (click)="getHeader('Manage Teacher')" routerLink="">Manage Teacher</a></ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-label><a class="nav-link" (click)="logout()" routerLink="">LogOut</a></ion-label>
-          </ion-item>
+          
         </ion-list>
-        <!-- teacher -->
-      <ion-list lines="none" *ngIf="userType == 'Teacher'">
-          <ion-item>
-            <ion-label><a class="nav-link" (click)="getHeader('Dashboard')" routerLink="">Dashboard</a></ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-label><a class="nav-link" (click)="getHeader('Add Teacher')" routerLink="">Add Course</a></ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-label><a class="nav-link" (click)="getHeader('Manage Teacher')" routerLink="">Manage Course</a></ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-label><a class="nav-link" (click)="logout()" routerLink="">LogOut</a></ion-label>
-          </ion-item>
-        </ion-list>
-        <!-- Student -->
-      <ion-list lines="none" *ngIf="userType == 'Student'">
-          <ion-item>
-            <ion-label><a class="nav-link" (click)="getHeader('Dashboard')" routerLink="">Dashboard</a></ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-label><a class="nav-link" (click)="getHeader('Add Teacher')" routerLink="">Add Teacher</a></ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-label><a class="nav-link" (click)="getHeader('Manage Teacher')" routerLink="">Manage Teacher</a></ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-label><a class="nav-link" (click)="logout()" routerLink="">LogOut</a></ion-label>
-          </ion-item>
-        </ion-list>
+       
   </ion-content>
 </ion-menu>

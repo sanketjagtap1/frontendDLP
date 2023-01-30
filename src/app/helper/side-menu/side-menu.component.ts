@@ -7,22 +7,61 @@ import { Router } from '@angular/router';
   styleUrls: ['./side-menu.component.scss'],
 })
 export class SideMenuComponent implements OnInit {
-  userType:any;
-  title="Dashborad"
+  userType: any;
+  title = "Dashborad"
+  routeObj: any;
+  adminLink = [
+    { name: 'Dashboard', link: '' },
+    { name: 'Add Teacher', link: 'admin/addTeacher' },
+    { name: 'Manage Teacher', link: 'admin/manageTeacher' },
+    { name: 'All Courses', link: 'admin/allCourses' },
+  ]
+
+  teacherLink = [
+    { name: 'Dashboard', link: '' },
+    { name: 'Add Course', link: 'teacher/addCourse' },
+    { name: 'Manage Course', link: 'teacher/manageCourse' },
+    { name: 'All Lectures', link: 'teacher/manageLect' },
+  ]
+
+
+  studentLink = [
+    { name: 'Dashboard', link: '' },
+    { name: 'Explore Courses', link: 'student/explore' },
+    { name: 'Profile', link: 'student/profile' },
+  ]
+
   constructor(private router: Router) { }
 
 
   ngOnInit() {
-    
+
     this.userType=localStorage.getItem('userType');
+    
+    // this.userType = '';
+
+   
     console.log(this.userType)
+    if (this.userType == "Admin") {
+      this.routeObj = this.adminLink;
+    } else if (this.userType == "Teacher"){
+      console.log(this.userType)
+      this.routeObj = this.teacherLink;
+    }
+    else if (this.userType == "Student"){
+      this.routeObj = this.studentLink;
+      console.log(this.userType)
+    }
+
+
+
   }
 
-  getHeader(title:any){
-    this.title=title;
+  getHeader(title: any) {
+    this.title = title;
   }
 
-  logout(){
+  logout() {
     localStorage.clear();
     this.router.navigate(['']);
   }
