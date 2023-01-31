@@ -31,27 +31,30 @@ export class SideMenuComponent implements OnInit {
     { name: 'Profile', link: 'student/profile' },
   ]
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+    this.userType = localStorage.getItem('userType');
+    console.log(this.userType)
+    if (this.userType == "Admin") {
+      this.routeObj = this.adminLink;
+    } else if (this.userType == "Teacher") {
+      console.log(this.userType)
+      this.routeObj = this.teacherLink;
+    }
+    else if (this.userType == "Student") {
+      this.routeObj = this.studentLink;
+      console.log(this.userType)
+    }
+  }
 
 
   ngOnInit() {
 
-    this.userType=localStorage.getItem('userType');
-    
+
+
     // this.userType = '';
 
-   
-    console.log(this.userType)
-    if (this.userType == "Admin") {
-      this.routeObj = this.adminLink;
-    } else if (this.userType == "Teacher"){
-      console.log(this.userType)
-      this.routeObj = this.teacherLink;
-    }
-    else if (this.userType == "Student"){
-      this.routeObj = this.studentLink;
-      console.log(this.userType)
-    }
+
+
 
 
 
