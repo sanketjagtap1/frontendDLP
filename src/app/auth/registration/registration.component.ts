@@ -32,7 +32,7 @@ export class RegistrationComponent implements OnInit {
         console.log(result)
         console.log(result.newStudent.userType)
         
-          this.router.navigate(['auth/login']);
+          this.router.navigate(['']);
       
       },
       error: (error) => {

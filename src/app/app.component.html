@@ -1,19 +1,18 @@
-<!-- <ion-app>
-  <app-side-menu></app-side-menu>
+<ion-app *ngIf="userType==null"> 
+      <div class="ion-page" id="main-content" >
+        <ion-header>
+          <ion-toolbar>
+            <ion-buttons slot="start">
+              <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title>DLP</ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content  class="ion-padding">
+          <ion-router-outlet></ion-router-outlet>
+        </ion-content>
+      </div> 
+    </ion-app>
+    
 
-
-  <div class="ion-page" id="main-content">
-    <ion-header>
-      <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-menu-button></ion-menu-button>
-        </ion-buttons>
-        <ion-title>DLP</ion-title>
-      </ion-toolbar>
-    </ion-header>
-    <ion-content  class="ion-padding">
-    </ion-content>
-  </div>
-</ion-app> -->
-
-<ion-router-outlet></ion-router-outlet>
+<ion-router-outlet *ngIf="userType!=''"></ion-router-outlet>

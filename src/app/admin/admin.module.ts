@@ -8,15 +8,18 @@ import { AddTeacherComponent } from './add-teacher/add-teacher.component';
 import { FormsModule } from '@angular/forms';
 import { ManageTeacherComponent } from './manage-teacher/manage-teacher.component';
 import { AllCoursesComponent } from './all-courses/all-courses.component';
+import { HelperModule } from '../helper/helper.module';
+import { AdminComponent } from './admin.component';
 
 
 @NgModule({
-  declarations: [DashboardComponent, AddTeacherComponent, ManageTeacherComponent, AllCoursesComponent],
+  declarations: [AdminComponent, DashboardComponent, AddTeacherComponent, ManageTeacherComponent, AllCoursesComponent],
   imports: [
     CommonModule,
     AdminRoutingModule,
     IonicModule.forRoot(),
-    FormsModule
+    FormsModule,
+    HelperModule
   ]
 })
 export class AdminModule { }

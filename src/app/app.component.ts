@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  userType:any;
+  constructor() {
+    this.userType=localStorage.getItem('userType');
+    console.log(this.userType)
+  }
 }

@@ -11,50 +11,47 @@ export class SideMenuComponent implements OnInit {
   title = "Dashborad"
   routeObj: any;
   adminLink = [
-    { name: 'Dashboard', link: '' },
-    { name: 'Add Teacher', link: 'admin/addTeacher' },
-    { name: 'Manage Teacher', link: 'admin/manageTeacher' },
-    { name: 'All Courses', link: 'admin/allCourses' },
+    { name: 'Dashboard', link: '/admin' },
+    { name: 'Add Teacher', link: 'addTeacher' },
+    { name: 'Manage Teacher', link: 'manageTeacher' },
+    { name: 'All Courses', link: 'allCourses' },
   ]
 
   teacherLink = [
-    { name: 'Dashboard', link: '' },
-    { name: 'Add Course', link: 'teacher/addCourse' },
-    { name: 'Manage Course', link: 'teacher/manageCourse' },
-    { name: 'All Lectures', link: 'teacher/manageLect' },
+    { name: 'Dashboard', link: 'dashboard' },
+    { name: 'Add Course', link: 'addCourse' },
+    { name: 'Manage Course', link: 'manageCourse' },
+    { name: 'All Lectures', link: 'manageLect' },
   ]
 
 
   studentLink = [
-    { name: 'Dashboard', link: '' },
+    { name: 'Dashboard', link: 'dashboard' },
     { name: 'Explore Courses', link: 'student/explore' },
     { name: 'Profile', link: 'student/profile' },
   ]
 
-  constructor(private router: Router) {
-    this.userType = localStorage.getItem('userType');
-    console.log(this.userType)
-    if (this.userType == "Admin") {
-      this.routeObj = this.adminLink;
-    } else if (this.userType == "Teacher") {
-      console.log(this.userType)
-      this.routeObj = this.teacherLink;
-    }
-    else if (this.userType == "Student") {
-      this.routeObj = this.studentLink;
-      console.log(this.userType)
-    }
-  }
+  constructor(private router: Router) { }
 
 
   ngOnInit() {
 
-
-
+    this.userType=localStorage.getItem('userType');
+    
     // this.userType = '';
 
-
-
+   
+    console.log(this.userType)
+    if (this.userType == "Admin") {
+      this.routeObj = this.adminLink;
+    } else if (this.userType == "Teacher"){
+      console.log(this.userType)
+      this.routeObj = this.teacherLink;
+    }
+    else if (this.userType == "Student"){
+      this.routeObj = this.studentLink;
+      console.log(this.userType)
+    }
 
 
 

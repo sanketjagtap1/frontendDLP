@@ -11,6 +11,10 @@
             <ion-label><a class="nav-link" (click)="getHeader('Dashboard')" routerLink="{{routes.link}}">{{routes.name}}</a></ion-label>
           </ion-item>
           
+          <ion-item *ngIf="userType != ''">
+            <ion-label><a class="nav-link" (click)="logout()" >LogOut</a></ion-label>
+          </ion-item>
+          
         </ion-list>
        
   </ion-content>

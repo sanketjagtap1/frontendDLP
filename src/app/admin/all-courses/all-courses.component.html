@@ -1,3 +1,29 @@
-<p>
-  all-courses works!
-</p>
+<ion-content [fullscreen]="true" class="no-scroll">
+ 
+  <table class="table">
+    
+    <tbody>
+      <tr *ngFor="let course of courseList; let i=index">
+        <td data-label="S.No">{{i+1}}</td>
+        <td data-label="Course Name">{{course.courseName}}</td>
+        <td data-label="Teacher Name">{{course.createBy}}</td>
+        <td data-label="Start Date">{{course.startData}}</td>
+        <td data-label="Fees">{{course.fees}}/-</td>
+        <td data-label="Action">
+          
+          <button class="btn btn-success mx-1">
+            <ion-icon name="create-outline"></ion-icon>
+          </button>
+         
+          <button class="btn btn-danger mx-1">
+            <ion-icon name="trash-outline"></ion-icon>
+          </button>
+  
+        </td>
+      </tr>
+  
+      
+    </tbody>
+  </table>
+    </ion-content>
+    
