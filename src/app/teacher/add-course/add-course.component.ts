@@ -22,6 +22,7 @@ export class AddCourseComponent implements OnInit {
       next:(result)=>{
         console.log(result)
         this.presentToast(result.message)
+        window.location.reload()
       },
       error: (error)=>{
         console.log(error)

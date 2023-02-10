@@ -106,15 +106,18 @@ getParticipants() {
 executeCommand(command: string) {
   this.api.executeCommand(command);;
   if(command == 'hangup') {
+      alert("end")
       this.router.navigate(['/thank-you']);
       return;
   }
 
   if(command == 'toggleAudio') {
-      this.isAudioMuted = !this.isAudioMuted;
+    alert("audio")
+    this.isAudioMuted = !this.isAudioMuted;
   }
 
   if(command == 'toggleVideo') {
+    alert("video")
       this.isVideoMuted = !this.isVideoMuted;
   }
 }
