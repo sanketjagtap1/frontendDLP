@@ -18,7 +18,7 @@ export class SideMenuComponent implements OnInit {
   ]
 
   teacherLink = [
-    { name: 'Dashboard', link: 'dashboard' },
+    { name: 'Dashboard', link: '/teacher' },
     { name: 'Add Course', link: 'addCourse' },
     { name: 'Manage Course', link: 'manageCourse' },
     { name: 'All Lectures', link: 'manageLect' },
@@ -26,9 +26,9 @@ export class SideMenuComponent implements OnInit {
 
 
   studentLink = [
-    { name: 'Dashboard', link: 'dashboard' },
-    { name: 'Explore Courses', link: 'student/explore' },
-    { name: 'Profile', link: 'student/profile' },
+    { name: 'Dashboard', link: '/student' },
+    { name: 'Explore Courses', link: 'explore' },
+    { name: 'Profile', link: 'profile' },
   ]
 
   constructor(private router: Router) { }

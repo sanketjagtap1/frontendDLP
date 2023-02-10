@@ -20,6 +20,19 @@ export class TeacherService {
   addCourse(obj?: any): Observable<any> {
     return this.http.post<any>(this.base_url+'teacher/createCourse', obj)
   }
+
+  getCourseList(obj?: any): Observable<any> {
+    return this.http.post<any>(this.base_url+'teacher/getCourses', obj)
+  }
+
+  addLect(obj?: any): Observable<any> {
+    return this.http.post<any>(this.base_url+'teacher/addLecture', obj)
+  }
+  
+
+  getLect(obj?: any): Observable<any> {
+    return this.http.post<any>(this.base_url+'teacher/getLect', obj)
+  }
   
 
   

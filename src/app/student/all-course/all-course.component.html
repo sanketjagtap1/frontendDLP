@@ -1,3 +1,26 @@
-<p>
-  all-course works!
-</p>
+<ion-content [fullscreen]="true" class="no-scroll">
+  <div class="cards" >
+
+    <ion-card *ngFor="let course of courseList">
+      
+      <ion-card-header>
+        <ion-card-title>{{course.courseName}}</ion-card-title>
+        <ion-card-subtitle>Start Date: {{course.startData}}</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      Full stack development course. MEAN (MongoDB, Node.js, Express.js, Angular)
+
+    </ion-card-content>
+    <ion-card-content class="d-flex justify-content-between align-items-center">
+      <span>Fees: {{course.fees}}/-</span>
+      <span>
+      <ion-button (click)="presentAlert(course._id, course.courseName, course.fees)" size="medium">Enroll</ion-button>
+    </span>
+    </ion-card-content>
+    
+    
+  </ion-card>
+  
+</div>
+</ion-content>

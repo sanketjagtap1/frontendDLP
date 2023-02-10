@@ -7,7 +7,7 @@ import { AdminService } from '../admin.service';
   styleUrls: ['./all-courses.component.scss'],
 })
 export class AllCoursesComponent implements OnInit {
-  courseList:any;
+  courseList: any;
   constructor(private adminSrv: AdminService) { }
 
   ngOnInit() {
@@ -15,16 +15,16 @@ export class AllCoursesComponent implements OnInit {
   }
 
   // get all courses
-  async getAllCourses(){
-await this.adminSrv.getCourseList().subscribe({
-  next: (result)=>{
-    console.log(result)
-    this.courseList=result.allCourses
-  },
-  error: (error)=>{
-    console.log(error)
-  }
-})
+  async getAllCourses() {
+    await this.adminSrv.getCourseList().subscribe({
+      next: (result) => {
+        console.log(result)
+        this.courseList = result.allCourses
+      },
+      error: (error) => {
+        console.log(error)
+      }
+    })
   }
 
 }
