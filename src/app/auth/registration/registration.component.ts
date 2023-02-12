@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { AuthenticationService } from '../authentication.service';
 
 @Component({
@@ -20,7 +21,8 @@ export class RegistrationComponent implements OnInit {
   });
 
   constructor(private authSrv: AuthenticationService,
-    private router: Router) { }
+    private router: Router,
+    private toastController: ToastController) { }
 
   ngOnInit() { }
   registerUser() {
@@ -30,15 +32,33 @@ export class RegistrationComponent implements OnInit {
     this.authSrv.registration(data).subscribe({
       next: (result) => {
         console.log(result)
-        console.log(result.newStudent.userType)
-        
-          this.router.navigate(['']);
-      
-      },
-      error: (error) => {
+        console.log(result.userType)
+          if(result.message == 'success'){
+            this.presentToast(result.message, 'success')
+            this.router.navigate(['']);
+          }
+          else{
+            console.log()
+            this.presentToast(result.message, 'danger')
+          }
+          
+        },
+        error: (error) => {
+        this.presentToast(error, 'danger')
         console.log(error)
       }
     })
+  }
+
+  async presentToast(error:any, color:any) {
+    const toast = await this.toastController.create({
+      message: error,
+      duration: 1500,
+      position: 'bottom',
+      color: color
+    });
+
+    await toast.present();
   }
 
 }

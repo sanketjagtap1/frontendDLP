@@ -5,8 +5,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { JitsiComponent } from './jitsi/jitsi.component';
 
 const routes: Routes = [
-  {path: '', component: DashboardComponent},
-  {path: 'explore', component: AllCourseComponent},
+  {path: '', component: AllCourseComponent},
+  {path: 'lect', component: DashboardComponent},
   {path: 'join', component: JitsiComponent},
 ];
 

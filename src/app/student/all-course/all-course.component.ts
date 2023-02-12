@@ -23,6 +23,9 @@ export class AllCourseComponent implements OnInit {
       next: (result)=>{
         console.log(result)
         this.courseList=result.allCourses;
+        result.allCourses.map((element: any)=>{
+          console.log(element['teacher'][0]['name'])
+        })
       },
       error: (error)=>{
         console.log(error)

@@ -35,6 +35,16 @@ export class AdminService {
     return this.http.get<any>(this.base_url+'admin/getCourseList', obj)
   }
 
+   // auth Services
+   deleteUser(obj?: any): Observable<any> {
+    return this.http.post<any>(this.base_url+'student/deleteTeacher', obj)
+  }
+
+   // auth Services
+   deleteCourse(obj?: any): Observable<any> {
+    return this.http.post<any>(this.base_url+'teacher/deleteCourse', obj)
+  }
+
   
 
 }

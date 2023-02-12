@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit {
     this.studentServ.getLect(obj).subscribe({
       next:(result)=>{
         console.log(result)
-        this.lectList=result.lectData
+        this.lectList=result.allCourses
       },
       error:(error)=>{
         console.log(error)

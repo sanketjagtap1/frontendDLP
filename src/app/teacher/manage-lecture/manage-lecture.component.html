@@ -3,10 +3,10 @@
         <tbody>
       <tr *ngFor="let course of lectList; let i=index">
         <td data-label="S.No">{{i+1}}</td>
-        <td data-label="Course Name">{{course.courseName}}</td>
-        <td data-label="Start Date">{{course.startData}}</td>
-        <td data-label="Fees">{{course.fees}}/-</td>
-        <td data-label="Action">
+        <td data-label="Tile">{{course.title}}</td>
+        <td data-label="Date">{{course.lectDate}}</td>
+        <td data-label="Time">{{course.startTime}}/-</td>
+        <!-- <td data-label="Action">
           
           <button (click)="presentAlert()" class="btn btn-success mx-1">
             <ion-icon name="add-circle-outline"></ion-icon>
@@ -16,10 +16,15 @@
             <ion-icon name="trash-outline"></ion-icon>
           </button>
   
-        </td>
+        </td> -->
       </tr>
        
     </tbody>
   </table>
+
+  <p class="text-center" *ngIf="lectList == ''">
+    Lectures Not Found
+  </p>
+
     </ion-content>
     

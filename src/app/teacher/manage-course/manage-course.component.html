@@ -1,25 +1,63 @@
-<ion-content [fullscreen]="true" class="no-scroll"> 
+<ion-content [fullscreen]="true" class="no-scroll">
   <table class="table">
-        <tbody>
+    <tbody>
       <tr *ngFor="let course of courseList; let i=index">
         <td data-label="S.No">{{i+1}}</td>
         <td data-label="Course Name">{{course.courseName}}</td>
         <td data-label="Start Date">{{course.startData}}</td>
         <td data-label="Fees">{{course.fees}}/-</td>
         <td data-label="Action">
-          
-          <button (click)="presentAlert(course._id, course.courseName)" class="btn btn-success mx-1">
+
+          <ion-button (click)="presentAlert(course._id, course.courseName)" color="success">
             <ion-icon name="add-circle-outline"></ion-icon>
-          </button>
-         
-          <button class="btn btn-danger mx-1">
+          </ion-button>
+
+          <ion-button id="open-modal" (click)="getCourseData(course._id)"><ion-icon
+              name="information-circle-outline"></ion-icon></ion-button>
+
+          <ion-button color="danger" >
             <ion-icon name="trash-outline"></ion-icon>
-          </button>
-  
+          </ion-button>
+
         </td>
       </tr>
-       
+
+
+
     </tbody>
   </table>
-    </ion-content>
-    
+
+  <p class="text-center" *ngIf="courseList == ''">
+    Courses Not Found
+  </p>
+
+  <!-- modal -->
+
+  <ion-modal [isOpen]="isModalOpen" (willDismiss)="onWillDismiss($event)">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="cancel()">Close</ion-button>
+          </ion-buttons>
+          <ion-title>Welcome</ion-title>
+
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <table class="table">
+          <tbody>
+            <tr *ngFor="let data of courseData; let i=index">
+              <td data-label="S.No">{{i+1}}</td>
+              <td data-label="Student  Name">{{data.student[0]['name']}}</td>
+              <td data-label="Email">{{data.student[0]['email']}}</td>
+              <td data-label="Mobile">{{data.student[0]['mobile']}}/-</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+</ion-content>

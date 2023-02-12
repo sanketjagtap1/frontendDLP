@@ -10,7 +10,10 @@ import { TeacherService } from '../teacher.service';
 export class DashboardComponent implements OnInit {
 
   courseCount:any;
-  constructor(private teacherSrv: TeacherService) { }
+  lectCount:any;
+  constructor(private teacherSrv: TeacherService) {
+    this.getLectCount()
+   }
 
   ngOnInit() {
     this.getCourseCount()
@@ -26,6 +29,22 @@ export class DashboardComponent implements OnInit {
       next: (result)=>{
         console.log(result)
         this.courseCount=result.courseCount
+      },
+      error: (error)=>{
+        console.log(error)
+      }
+    })
+  }
+
+  // get Course Count
+  async getLectCount(){
+    let obj = {
+      id: localStorage.getItem('id')
+    }
+    await this.teacherSrv.getLectCount(obj).subscribe({
+      next: (result)=>{
+        console.log(result)
+        this.lectCount=result.lectCount
       },
       error: (error)=>{
         console.log(error)

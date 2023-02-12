@@ -9,7 +9,7 @@
     <th>Status</th>
   </thead>
   <tbody>
-    <tr *ngFor="let user of userList; let i=index;">
+    <tr *ngFor="let user of userList; let i=index;" >
       <td data-label="S.No">{{i+1}}</td>
       <td data-label="Name">{{user.name}}</td>
       <td data-label="Mobile">{{user.mobile}}</td>
@@ -20,13 +20,14 @@
           <ion-icon name="create-outline"></ion-icon>
         </button>
        
-        <button class="btn btn-danger mx-1">
+        <button (click)="deleteUser(user._id)" class="btn btn-danger mx-1">
           <ion-icon name="trash-outline"></ion-icon>
         </button>
 
       </td>
     </tr>
 
+    <p class="text-center" *ngIf="userList==''">No Data</p>
     
   </tbody>
 </table>

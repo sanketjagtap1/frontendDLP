@@ -17,6 +17,10 @@ export class TeacherService {
     return this.http.post<any>(this.base_url+'teacher/getCourseCount', obj)
   }
 
+  getLectCount(obj?: any): Observable<any> {
+    return this.http.post<any>(this.base_url+'teacher/getLectCount', obj)
+  }
+
   addCourse(obj?: any): Observable<any> {
     return this.http.post<any>(this.base_url+'teacher/createCourse', obj)
   }
@@ -32,6 +36,10 @@ export class TeacherService {
 
   getLect(obj?: any): Observable<any> {
     return this.http.post<any>(this.base_url+'teacher/getLect', obj)
+  }
+
+  getCourseData(obj?: any): Observable<any> {
+    return this.http.post<any>(this.base_url+'teacher/getCourseEnrollDetails', obj)
   }
   
 

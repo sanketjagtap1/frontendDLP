@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { from } from 'rxjs';
 import { AuthenticationService } from 'src/app/auth/authentication.service';
 
 @Component({
@@ -27,6 +28,7 @@ export class AddTeacherComponent implements OnInit {
       next: (result)=>{
         console.log(result.message)
         this.presentToast(result.message)
+        this.router.navigate(['admin/manageTeacher'])
       },
       error:(error)=>{
         console.log(error.statusText)

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 import { AdminService } from '../admin.service';
 
 @Component({
@@ -8,14 +8,16 @@ import { AdminService } from '../admin.service';
   styleUrls: ['./manage-teacher.component.scss'],
 })
 export class ManageTeacherComponent implements OnInit {
-
+  color:any;
   userList:any;
 
-  constructor(private adminSrv:AdminService, private alertController: AlertController) { }
-
-  ngOnInit() {
+  constructor(private adminSrv:AdminService, private alertController: AlertController, private toastController: ToastController) { 
     this.getUserList()
     console.log(this.userList)
+  }
+
+  ngOnInit() {
+    
   }
 
   // get user list
@@ -27,6 +29,23 @@ export class ManageTeacherComponent implements OnInit {
       },
       error:(error)=>{
         console.log(error)
+      }
+    })
+  }
+
+  async deleteUser(id:any){
+    let obj = {
+      "id": id
+    }
+    await this.adminSrv.deleteUser(obj).subscribe({
+      next: (result)=>{
+        console.log(result)
+        this.presentToast(result.message, "success")
+        this.getUserList()
+      },
+      error: (err) =>{
+        console.log(err)
+        this.presentToast(err.statusText, "Danger")
       }
     })
   }
@@ -74,6 +93,21 @@ export class ManageTeacherComponent implements OnInit {
     });
 
     await alert.present();
+  }
+
+  
+
+  // toster
+  async presentToast(message:any, color:any) {
+    
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 1500,
+      position: 'bottom',
+      color: color
+    });
+
+    await toast.present();
   }
 
 }
